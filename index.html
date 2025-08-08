@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pengatur Keuangan & Tips Hidup Sederhana</title>
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Manifest PWA -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#4CAF50">
+</head>
+<body>
+    <header>
+        <h1>Pengatur Keuangan</h1>
+    </header>
+
+    <main>
+        <section class="saldo">
+            <h2>Saldo Saat Ini</h2>
+            <p id="saldo">Rp 0</p>
+        </section>
+
+        <section class="alokasi">
+            <h2>Rekomendasi Alokasi (50/30/20)</h2>
+            <p id="kebutuhan">Kebutuhan: Rp 0</p>
+            <p id="keinginan">Keinginan: Rp 0</p>
+            <p id="tabungan">Tabungan: Rp 0</p>
+        </section>
+
+        <section id="peringatan" class="peringatan" style="display:none;">
+            ⚠️ Pengeluaran kamu melebihi pemasukan! Kurangi pengeluaran tidak penting.
+        </section>
+
+        <section class="form-section">
+            <h2>Tambah Transaksi</h2>
+            <form id="formTransaksi">
+                <select id="tipe">
+                    <option value="pemasukan">Pemasukan</option>
+                    <option value="pengeluaran">Pengeluaran</option>
+                </select>
+                <input type="number" id="jumlah" placeholder="Jumlah (Rp)" required>
+                <input type="text" id="deskripsi" placeholder="Deskripsi" required>
+                <button type="submit">Tambah</button>
+            </form>
+        </section>
+
+        <section class="riwayat">
+            <h2>Riwayat Transaksi</h2>
+            <ul id="daftarTransaksi"></ul>
+        </section>
+
+        <section class="edukasi">
+            <h2>Tips Hidup Sederhana</h2>
+            <ul>
+                <li>Bedakan kebutuhan dan keinginan.</li>
+                <li>Gunakan prinsip 50/30/20 untuk mengatur uang.</li>
+                <li>Catat semua pemasukan dan pengeluaran.</li>
+                <li>Hindari pembelian impulsif.</li>
+                <li>Prioritaskan kualitas daripada kuantitas.</li>
+                <li>Nikmati hiburan gratis atau murah.</li>
+                <li>Latih rasa cukup dan bersyukur.</li>
+            </ul>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+
+    <!-- Register Service Worker -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('service-worker.js')
+            .then(() => console.log("Service Worker terdaftar"))
+            .catch(err => console.error("SW gagal:", err));
+        }
+    </script>
+</body>
+</html>
